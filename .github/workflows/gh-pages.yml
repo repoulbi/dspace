@@ -18,12 +18,13 @@ jobs:
         node-version: '16'
 
     - name: Run install
-      uses: borales/actions-yarn@v4
-      with:
-        cmd: install
+      # uses: borales/actions-yarn@v4
+      # with:
+      #   cmd: install
+      run: npm install
 
     - name: Build
-      run: yarn build:prod
+      run: npm build:prod
 
     - name: ls
       run: ls -aRl
