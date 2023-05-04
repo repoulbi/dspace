@@ -17,15 +17,19 @@ jobs:
       with:
         node-version: '16'
 
-    - name: Install dependencies
-      run: npm install
+    - name: Run install
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: install
 
     - name: Build
-      run: npm run build:prod
+      run: yarn build:prod
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: dist/angular-github-actions
-        enable_jekyll: true
+    - name: ls
+      run: ls -aRl
+    # - name: Deploy
+    #   uses: peaceiris/actions-gh-pages@v3
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     publish_dir: dist/angular-github-actions
+    #     enable_jekyll: true
